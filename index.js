@@ -47,7 +47,6 @@ server.post('/projects', (req, res) => {
 
 // Armazena uma nova tarefa no array de tarefas de um projeto através do ID
 server.post('/projects/:id/tasks', checkProjectId,  (req, res) => {
-  // const { id } = req.params;
   const { title } = req.body;
 
   const project = projects.find(project => project.id == req.id);
@@ -64,7 +63,6 @@ server.get('/projects', (req, res) => {
 
 // Alteração do título do projeto através do ID
 server.put('/projects/:id',  checkProjectId, (req, res) => {
-  // const { id } = req.params;
   const { title } = req.body;
 
   const project = projects.find(project => project.id == req.id);
@@ -76,7 +74,6 @@ server.put('/projects/:id',  checkProjectId, (req, res) => {
 
 // Exclusão de um projeto através do seu ID
 server.delete('/projects/:id', checkProjectId,  (req, res) => {
-  // const { id } = req.params;
   const project = projects.find(project => project.id == req.id);
   const index = projects.indexOf(project);
   projects.splice(index, 1);
